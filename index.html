@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to bottom, #3498db, #2ecc71);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 70%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #205cb1;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #input-form {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+        footer {
+    margin-top: 20px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    text-align: right;
+    padding-right: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 97px; /* Adjust the height value as needed */
+}
+footer li{
+    text-align: right;
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Email/SMS Fraud Detection</h1>
+        <p>This Machine Learning project involves identifying whether the message is genuine or spam. If the given message is not spam, the model provides the sentiment of the sender. This project is prevalent in email systems and messaging applications to enhance user experience by reducing the impact of fraud content and performing sentiment analysis.</p>
+        <div id="input-form">
+            <form action="/predict" method="post">
+                <label for="sms">Enter SMS/EMAIL Content:</label>
+                <textarea id="sms" name="sms" rows="7" placeholder="Type your message here"></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h3>V Semester project</h3>
+        <h4>
+            <ul style="list-style-type: none;">
+                <li>Harshavardhan Rao</li>
+                <li>Nanda Kishore</li>
+            </ul>
+        </h4>
+    </footer>
+</body>
+</html>

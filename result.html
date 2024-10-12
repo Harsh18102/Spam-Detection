@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to bottom, #3498db, #2ecc71);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 70%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2947be;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #result {
+            font-size: 36px; /* Increase font size for spam result */
+            color: {% if result.classification == "Spam" %}#e74c3c{% else %}#301a81{% endif %}; /* Change color for spam result */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        #details {
+            color: #333;
+            font-size: 16px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: larger;
+            color: sienna;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        li {
+            text-align: left;
+        }
+
+        #emoji {
+            font-size: 48px;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: right;
+            padding-right: 100px;
+            width: 100%; /* Make the footer span the entire width */
+            position: fixed; /* Fix the position at the bottom */
+            bottom: 0; /* Stick it to the bottom of the page */
+            height: 100px;
+        }
+
+        footer li {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Result after Testing the Message</h1>
+        <div id="result">{{ result.classification }}</div>
+        <p>Test Accuracy: {{ result.accuracy }}</p>
+        <div id="details">
+            {% if result.classification == "Not Spam" %}
+                <p>Mood of the Sender: {{ result.sentiment }}</p>
+                <ol>
+                    <li>Positive - Happy</li>
+                    <li>Negative - Sad</li>
+                    <li>Neutral - Normal</li>
+                </ol>
+                <div id="emoji">{% if result.sentiment == "Positive" %}😃{% elif result.sentiment == "Negative" %}😢{% else %}😐{% endif %}</div>
+            {% endif %}
+            {% if result.classification == "Spam" %}
+                <div style="font-size: 24px; color: #e74c3c; font-weight: bold;">This message is SPAM!</div>
+                <img src="{{ url_for('static', filename='/spam1.png') }}" alt="Spam Image" style="max-width: 100%; margin-top: 20px;">
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <h3>V Semester project</h3>
+        <h4>
+            <ul style="list-style-type: none;">
+                <li>Harshavardhan Rao</li>
+                <li>Nanda Kishore</li>
+            </ul>
+        </h4>
+    </footer>
+</body>
+</html>
